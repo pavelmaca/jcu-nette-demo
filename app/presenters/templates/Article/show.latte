@@ -1,0 +1,32 @@
+{block content}
+
+    <h1>{$article->title}</h1>
+
+
+    <article>
+
+        {$article->text}
+
+    </article>
+
+    <hr>
+
+    <p>Vlozeno: {$article->timestamp|date:'d. m. Y'}</p>
+
+    <a n:href="Article:">&lt;&lg; Zpet na seznam clanku</a>
+
+    <h2>Komentare</h2>
+
+
+    {control commentForm}
+
+    {foreach $article->related('comment') as $c}
+
+        <p>
+            {$c->text}
+            <strong><em> --- {$c->nick} | {$c->timestamp}</em></strong>
+        </p>
+
+    {/foreach}
+
+{/block}

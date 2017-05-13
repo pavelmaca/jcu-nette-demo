@@ -1,0 +1,36 @@
+{block content}
+
+    <h1>Vsechny clanky</h1>
+
+    <ul>
+
+        {foreach $allArticles as $id => $item}
+
+            <li>
+                <a n:href="Article:show id => $item->id">{$item->title}</a>
+            </li>
+
+        {/foreach}
+    </ul>
+
+    <hr>
+    <p>
+        Strana {$paginator->getPage()}
+    </p>
+
+    {if $paginator->isFirst()}
+        <span>&lt;&lt; Predchozi</span>
+    {else}
+        <a n:href="this, page => $paginator->page - 1">&lt;&lt; Predchozi</a>
+    {/if}
+
+
+    {if $paginator->isLast()}
+        <span>Dalsi &gt;&gt;</span>
+    {else}
+        <a n:href="this, page => $paginator->page + 1">Dalsi &gt;&gt;</a>
+    {/if}
+
+
+
+{/block}

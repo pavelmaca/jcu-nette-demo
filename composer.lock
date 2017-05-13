@@ -107,7 +107,7 @@
                 "shasum": ""
             },
             "require": {
-                "nette/component-model": "^2.3",
+                "nette/component-articleModel": "^2.3",
                 "nette/http": "^2.2",
                 "nette/reflection": "^2.2",
                 "nette/utils": "^2.4 || ~3.0.0",
@@ -301,16 +301,16 @@
             "time": "2017-01-29 20:40:55"
         },
         {
-            "name": "nette/component-model",
+            "name": "nette/component-articleModel",
             "version": "v2.3.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/nette/component-model.git",
+                "url": "https://github.com/nette/component-articleModel.git",
                 "reference": "9b5817b246bf409b8f0f8309c23e599dd8729d28"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/component-model/zipball/9b5817b246bf409b8f0f8309c23e599dd8729d28",
+                "url": "https://api.github.com/repos/nette/component-articleModel/zipball/9b5817b246bf409b8f0f8309c23e599dd8729d28",
                 "reference": "9b5817b246bf409b8f0f8309c23e599dd8729d28",
                 "shasum": ""
             },
@@ -548,7 +548,7 @@
                 "shasum": ""
             },
             "require": {
-                "nette/component-model": "~2.3",
+                "nette/component-articleModel": "~2.3",
                 "nette/http": "~2.2",
                 "nette/utils": "~2.4",
                 "php": ">=5.6.0"
