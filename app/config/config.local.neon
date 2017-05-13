@@ -1,0 +1,9 @@
+parameters:
+
+
+database:
+	dsn: 'mysql:host=127.0.0.1;dbname=jcu-nette'
+	user: root
+	password: 123
+	options:
+		lazy: yes
