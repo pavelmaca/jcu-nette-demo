@@ -58,4 +58,4 @@ vendor/*
 !.gitignore
 !.htaccess
 !web.config
-#app/config/config.local.neon
+app/config/config.local.ondra.neon
