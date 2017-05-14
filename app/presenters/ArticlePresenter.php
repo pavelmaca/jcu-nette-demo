@@ -55,10 +55,17 @@ class ArticlePresenter extends BasePresenter
 
         $form->addSubmit('Odeslat');
 
-        $form->onSuccess[] = function (Form $form){
+        $form->onSuccess[] = function (Form $form) {
             $values = $form->getValues();
 
-            $this->articleModel->addComent($this->id, $values['nick'], $values['text']);
+            $saved = $this->articleModel->addComent($this->id, $values['nick'], $values['text']);
+            if ($saved) {
+                $this->flashMessage('Komentář byl uložen.');
+            } else {
+                $this->flashMessage('Nepodařilo se uložit komentář.');
+            }
+
+            $this->redirect('this');
         };
 
         return $form;
