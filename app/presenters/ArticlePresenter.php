@@ -10,6 +10,7 @@ namespace App\Presenters;
 
 
 use App\Model\ArticleModel;
+use Nette\Application\BadRequestException;
 
 class ArticlePresenter extends BasePresenter
 {
@@ -31,7 +32,9 @@ class ArticlePresenter extends BasePresenter
 
         //$id = $this->getParameter('id');
         $article =  $this->articleModel->getArticle($id);
-
+        if(!$article){
+            throw new BadRequestException('Článek neexistuje.');
+        }
         $this->template->article = $article;
     }
 }
