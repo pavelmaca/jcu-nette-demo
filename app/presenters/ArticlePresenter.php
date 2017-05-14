@@ -22,6 +22,8 @@ class ArticlePresenter extends BasePresenter
 
     protected $id;
 
+    protected $page;
+
     /**
      * ArticlePresenter constructor.
      *
@@ -34,14 +36,20 @@ class ArticlePresenter extends BasePresenter
     }
 
 
-    public function renderDefault($page = null){
+    public function handlePage($page){
+
+         $this->page = $page;
+
+    }
+
+    public function renderDefault(){
 
         $articles = $this->articleModel->getAllArticles();
 
         $paginator = new Paginator();
         $paginator->itemCount = $articles->count();
         $paginator->itemsPerPage = 2;
-        $paginator->page = $page;
+        $paginator->page = $this->page;
 
         $this->template->allArticles = $articles->limit($paginator->getLength(), $paginator->getOffset());
         $this->template->paginator = $paginator;

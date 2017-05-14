@@ -21,14 +21,14 @@
     {if $paginator->isFirst()}
         <span>&lt;&lt; Predchozi</span>
     {else}
-        <a n:href="this, page => $paginator->page - 1">&lt;&lt; Predchozi</a>
+        <a n:href="page! $paginator->page - 1">&lt;&lt; Predchozi</a>
     {/if}
 
 
     {if $paginator->isLast()}
         <span>Dalsi &gt;&gt;</span>
     {else}
-        <a n:href="this, page => $paginator->page + 1">Dalsi &gt;&gt;</a>
+        <a n:href="page! $paginator->page + 1">Dalsi &gt;&gt;</a>
     {/if}
 
 
