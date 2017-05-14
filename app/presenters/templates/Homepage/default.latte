@@ -5,7 +5,7 @@
     <ul>
         {foreach $allArticles as $article}
             <li>
-                <a href="">{$article->title}</a>
+                <a n:href="Article:show id => $article->id">{$article->title}</a>
             </li>
         {/foreach}
     </ul>
