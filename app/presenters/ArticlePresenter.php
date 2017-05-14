@@ -12,12 +12,14 @@ namespace App\Presenters;
 use App\Model\ArticleModel;
 use Nette\Application\BadRequestException;
 use Nette\Application\UI\Form;
-use Tracy\Debugger;
 
 class ArticlePresenter extends BasePresenter
 {
     /** @var  ArticleModel */
     protected $articleModel;
+
+    /** @persistent */
+    public $id;
 
     /**
      * ArticlePresenter constructor.
@@ -55,7 +57,8 @@ class ArticlePresenter extends BasePresenter
 
         $form->onSuccess[] = function (Form $form){
             $values = $form->getValues();
-            Debugger::barDump($values);
+
+            $this->articleModel->addComent($this->id, $values['nick'], $values['text']);
         };
 
         return $form;

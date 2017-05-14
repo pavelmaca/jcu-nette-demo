@@ -45,4 +45,20 @@ class ArticleModel
         return $this->getAllArticles()->get($id);
     }
 
+    /**
+     * Uloží komentář k článku
+     *
+     * @param $articleId
+     * @param $nick
+     * @par am $text
+     * @return bool|int|\Nette\Database\Table\IRow
+     */
+    public function addComent($articleId, $nick, $text){
+        return $this->database->table('comment')->insert([
+            'article_id' => $articleId,
+            'nick' => $nick,
+            'text' => $text,
+        ]);
+    }
+
 }
