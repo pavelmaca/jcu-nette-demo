@@ -35,4 +35,14 @@ class ArticleModel
         return $this->database->table('article');
     }
 
+    /**
+     * Vyhledání člnáku podle ID
+     * @param $id
+     * @return \Nette\Database\Table\|false Vrátí false pokud není článek nalezen
+     */
+    public function getArticle($id)
+    {
+        return $this->getAllArticles()->get($id);
+    }
+
 }

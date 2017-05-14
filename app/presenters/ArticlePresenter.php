@@ -9,9 +9,29 @@
 namespace App\Presenters;
 
 
+use App\Model\ArticleModel;
+
 class ArticlePresenter extends BasePresenter
 {
+    /** @var  ArticleModel */
+    protected $articleModel;
+
+    /**
+     * ArticlePresenter constructor.
+     * @param ArticleModel $articleModel
+     */
+    public function __construct(ArticleModel $articleModel)
+    {
+        parent::__construct();
+        $this->articleModel = $articleModel;
+    }
 
 
+    public function renderShow($id){
 
+        //$id = $this->getParameter('id');
+        $article =  $this->articleModel->getArticle($id);
+
+        $this->template->article = $article;
+    }
 }
