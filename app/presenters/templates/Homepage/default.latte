@@ -3,8 +3,10 @@
 
     Seznam článků:
     <ul>
-        <li>
-            <a href="/clanek/1">Jak pracovat s Nette</a>
-        </li>
+        {foreach $allArticles as $article}
+            <li>
+                <a href="">{$article->title}</a>
+            </li>
+        {/foreach}
     </ul>
 {/block}
