@@ -18,9 +18,6 @@ class ArticlePresenter extends BasePresenter
     /** @var  ArticleModel */
     protected $articleModel;
 
-    /** @persistent */
-    public $id;
-
     /**
      * ArticlePresenter constructor.
      * @param ArticleModel $articleModel
@@ -58,7 +55,7 @@ class ArticlePresenter extends BasePresenter
         $form->onSuccess[] = function (Form $form) {
             $values = $form->getValues();
 
-            $saved = $this->articleModel->addComent($this->id, $values['nick'], $values['text']);
+            $saved = $this->articleModel->addComent($this->getParameter('id', null), $values['nick'], $values['text']);
             if ($saved) {
                 $this->flashMessage('Komentář byl uložen.');
             } else {
