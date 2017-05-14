@@ -11,6 +11,7 @@ namespace App\Presenters;
 
 use App\Model\ArticleModel;
 use Nette\Application\BadRequestException;
+use Nette\Application\UI\Form;
 
 class ArticlePresenter extends BasePresenter
 {
@@ -28,13 +29,29 @@ class ArticlePresenter extends BasePresenter
     }
 
 
-    public function renderShow($id){
+    public function renderShow($id)
+    {
 
         //$id = $this->getParameter('id');
-        $article =  $this->articleModel->getArticle($id);
-        if(!$article){
+        $article = $this->articleModel->getArticle($id);
+        if (!$article) {
             throw new BadRequestException('Článek neexistuje.');
         }
         $this->template->article = $article;
+    }
+
+    public function createComponentComentForm()
+    {
+        $form = new Form();
+
+        $form->addText('nick', 'Přezdívka')
+            ->setRequired(true);
+
+        $form->addTextArea('text', 'Komentář')
+            ->setRequired(true);
+
+        $form->addSubmit('Odeslat');
+
+        return $form;
     }
 }
