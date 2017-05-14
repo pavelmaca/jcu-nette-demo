@@ -6,5 +6,15 @@
     <p>Vloženo: {$article->timestamp|date:'d.m.Y'}</p>
     <a n:href="Homepage:">&lt; &lt; Zpět na seznam člnáků</a>
 
+    <h2>Komentáře</h2>
     {control comentForm}
+
+    {foreach $article->related('comment') as $coment}
+        <p>
+            {$coment->text}
+            <strong><em> --- {$coment->nick} | {$coment->timestamp|date:'d.m.Y H:i'}</em></strong>
+        </p>
+    {/foreach}
+
+
 {/block}
