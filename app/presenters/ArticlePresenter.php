@@ -12,6 +12,7 @@ namespace App\Presenters;
 use App\Model\ArticleModel;
 use Nette\Application\BadRequestException;
 use Nette\Application\UI\Form;
+use Tracy\Debugger;
 
 class ArticlePresenter extends BasePresenter
 {
@@ -51,6 +52,11 @@ class ArticlePresenter extends BasePresenter
             ->setRequired(true);
 
         $form->addSubmit('Odeslat');
+
+        $form->onSuccess[] = function (Form $form){
+            $values = $form->getValues();
+            Debugger::barDump($values);
+        };
 
         return $form;
     }
